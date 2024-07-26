@@ -1,0 +1,36 @@
+package td1207;
+import java.util.*;
+import java.util.Scanner;
+public class td1207 {
+	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int nombreAleatoire = (int) (Math.random() * 100) + 1;
+        int essais = 0;
+        
+
+        System.out.println("Bienvenue dans le jeu \"Devine le nombre\" !");
+        System.out.println("nombre entre 1 et 100. À toi de deviner !");
+
+        while (essais < 10) {
+            System.out.print("Essai #" + (essais + 1) + ": ");
+            int devine = scanner.nextInt();
+            essais++;
+
+            if (devine == nombreAleatoire) {
+               
+                System.out.println("Bravo ! Tu as trouvé le nombre " + nombreAleatoire + " en " + essais + " essais.");
+            } else if (devine < nombreAleatoire) {
+                System.out.println("Le nombre est plus grand.");
+            } else {
+                System.out.println("Le nombre est plus petit.");
+            }
+        }
+
+        if (essais>=10) {
+            System.out.println("Dommage ! Tu as utilisé tes 10 essais. Le nombre était " + nombreAleatoire + ".");
+        }
+
+        scanner.close();
+    }
+}
+
